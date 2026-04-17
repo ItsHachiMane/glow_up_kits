@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glow Up Kits</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; background: #faf7fb; color: #1f1b24; }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+      .grid { display: grid; gap: 16px; }
+      .cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+      .card { background: white; border: 1px solid #eadff0; border-radius: 16px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+      h1, h2, h3 { margin-top: 0; }
+      table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; }
+      th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #eee; }
+      .muted { color: #6c6475; }
+      .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #f0e5f6; font-size: 12px; }
+      a { color: #7a2ea8; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+  </html>
+
