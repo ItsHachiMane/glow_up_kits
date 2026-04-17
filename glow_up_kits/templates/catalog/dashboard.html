@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Glow Up Kits</h1>
+  <p class="muted">Admin dashboard for kits, inventory, and orders.</p>
+
+  <div class="grid cards" style="margin: 24px 0;">
+    <div class="card"><h3>{{ kit_count }}</h3><p>Total kits</p></div>
+    <div class="card"><h3>{{ active_kit_count }}</h3><p>Active kits</p></div>
+    <div class="card"><h3>{{ low_stock_count }}</h3><p>Low stock kits</p></div>
+    <div class="card"><h3>${{ total_inventory_value|floatformat:2 }}</h3><p>Inventory value</p></div>
+  </div>
+
+  <div class="grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="card">
+      <h2>Low stock</h2>
+      {% if low_stock_kits %}
+        <ul>
+          {% for kit in low_stock_kits %}
+            <li>{{ kit.name }} <span class="pill">{{ kit.stock_qty }} left</span></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="muted">No low-stock kits right now.</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2>Recent orders</h2>
+      {% if recent_orders %}
+        <ul>
+          {% for order in recent_orders %}
+            <li>{{ order.customer_name }} ordered {{ order.quantity }} x {{ order.kit.name }} <span class="pill">{{ order.status }}</span></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="muted">No orders yet.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <p style="margin-top: 24px;">Open <a href="/admin/">Django admin</a> to add your first kits.</p>
+{% endblock %}
+
