@@ -11,7 +11,7 @@ def dashboard(request):
     total_inventory_value = kits.aggregate(
         value=Sum(
             ExpressionWrapper(
-                F("stock_qty") * F("cost"),
+                F("stock_qty") * F("price"),
                 output_field=DecimalField(max_digits=12, decimal_places=2),
             )
         )

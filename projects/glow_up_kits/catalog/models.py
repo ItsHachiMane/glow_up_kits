@@ -5,8 +5,8 @@ class Kit(models.Model):
     name = models.CharField(max_length=120)
     sku = models.CharField(max_length=40, blank=True)
     contents = models.TextField(blank=True)
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    cost = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Sale price")
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name="Cost")
     stock_qty = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -33,4 +33,3 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.customer_name} - {self.kit.name}"
-
