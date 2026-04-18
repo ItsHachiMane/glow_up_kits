@@ -4,7 +4,7 @@ Internal admin app for the makeup kit business.
 
 ## MVP
 - manage kits
-- track cost, price, and stock
+- track sale price, cost, and stock
 - track simple orders
 - view a small dashboard
 
@@ -15,4 +15,3 @@ Internal admin app for the makeup kit business.
 
 ## Next step
 Install dependencies, run migrations, and create a superuser.
-
